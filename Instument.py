@@ -84,12 +84,19 @@ def auto_adjust(ws):
                 maximum_value = val_to_check
         ws.column_dimensions[get_column_letter(letter)].width = maximum_value + 2
 
+
+def autoCenter(ws):
     for col in ws.columns:
         for cell in col:
             # openpyxl styles aren't mutable,
             # so you have to create a copy of the style, modify the copy, then set it back
             alignment_obj = cell.alignment.copy(horizontal='center', vertical='center')
             cell.alignment = alignment_obj
+
+
+def time_to_format(ws):
+    auto_adjust(ws)
+    autoCenter(ws)
 
 
 def main(filepath):
@@ -121,7 +128,7 @@ def main(filepath):
             if inst.SN == brickSheet.cell(column=col, row=snRow).value:
                 inst.brickA = brickSheet.cell(column=col, row=avgRow).value
                 inst.brickB = brickSheet.cell(column=col + 1, row=avgRow).value
-            
+
             col += 3
             continue
 
@@ -233,10 +240,8 @@ def main(filepath):
 
         row += 1
 
-
-    auto_adjust(finalSheet)
+    time_to_format(finalSheet)
     wb.save(filepath)
-
 
 
 def select_path():
@@ -266,9 +271,9 @@ path = StringVar()
 
 label = tk.Label(root, text="Folder Path:")
 label.place(x=0, y=5)
-entry =  tk.Entry(root, width=20, text=path)
+entry = tk.Entry(root, width=20, text=path)
 entry.place(x=67, y=7)
-button1 = tk.Button(root, image=image, width=20, height=20,  command=select_path)
+button1 = tk.Button(root, image=image, width=20, height=20, command=select_path)
 button1.place(x=190, y=3)
 button1 = tk.Button(root, text="Go", command=dummy_main)
 button1.place(x=100, y=30)
