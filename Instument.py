@@ -39,7 +39,7 @@ class Instrument:
 def checklist(ws):
     col = 2
 
-    while col < 50:
+    while col < 150:
         if len(instruments) == 0:
             inst = Instrument(ws.cell(column=col, row=snRow).value)
             instruments.append(inst)
@@ -123,7 +123,7 @@ def main(filepath):
 
     # Assign values
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == brickSheet.cell(column=col, row=snRow).value:
                 inst.brickA = brickSheet.cell(column=col, row=avgRow).value
@@ -133,7 +133,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == concreteSheet.cell(column=col, row=snRow).value:
                 inst.concreteA = concreteSheet.cell(column=col, row=avgRow).value
@@ -143,7 +143,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == linoleumSheet.cell(column=col, row=snRow).value:
                 inst.linoleumA = linoleumSheet.cell(column=col, row=avgRow).value
@@ -153,7 +153,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == drywallSheet.cell(column=col, row=snRow).value:
                 inst.drywallA = drywallSheet.cell(column=col, row=avgRow).value
@@ -163,7 +163,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == metalSheet.cell(column=col, row=snRow).value:
                 inst.metalA = metalSheet.cell(column=col, row=avgRow).value
@@ -173,7 +173,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == ceilingTileSheet.cell(column=col, row=snRow).value:
                 inst.ceilingTileA = ceilingTileSheet.cell(column=col, row=avgRow).value
@@ -183,7 +183,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == woodSheet.cell(column=col, row=snRow).value:
                 inst.woodA = woodSheet.cell(column=col, row=avgRow).value
@@ -193,7 +193,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == glassSheet.cell(column=col, row=snRow).value:
                 inst.glassA = glassSheet.cell(column=col, row=avgRow).value
@@ -203,7 +203,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 50:
+    while col < 150:
         for inst in instruments:
             if inst.SN == graniteSheet.cell(column=col, row=snRow).value:
                 inst.graniteA = graniteSheet.cell(column=col, row=avgRow).value
@@ -218,25 +218,30 @@ def main(filepath):
     setup(finalSheet)
 
     for inst in instruments:
-        finalSheet.cell(column=1, row=row).value = round(inst.SN, 0)
-        finalSheet.cell(column=2, row=row).value = round(inst.brickA, 0)
-        finalSheet.cell(column=3, row=row).value = round(inst.brickB, 0)
-        finalSheet.cell(column=4, row=row).value = round(inst.concreteA, 0)
-        finalSheet.cell(column=5, row=row).value = round(inst.concreteB, 0)
-        finalSheet.cell(column=6, row=row).value = round(inst.linoleumA, 0)
-        finalSheet.cell(column=7, row=row).value = round(inst.linoleumB, 0)
-        finalSheet.cell(column=8, row=row).value = round(inst.drywallA, 0)
-        finalSheet.cell(column=9, row=row).value = round(inst.drywallB, 0)
-        finalSheet.cell(column=10, row=row).value = round(inst.metalA, 0)
-        finalSheet.cell(column=11, row=row).value = round(inst.metalB, 0)
-        finalSheet.cell(column=12, row=row).value = round(inst.ceilingTileA, 0)
-        finalSheet.cell(column=13, row=row).value = round(inst.ceilingTileB, 0)
-        finalSheet.cell(column=14, row=row).value = round(inst.woodA, 0)
-        finalSheet.cell(column=15, row=row).value = round(inst.woodB, 0)
-        finalSheet.cell(column=16, row=row).value = round(inst.glassA, 0)
-        finalSheet.cell(column=17, row=row).value = round(inst.glassB, 0)
-        finalSheet.cell(column=18, row=row).value = round(inst.graniteA, 0)
-        finalSheet.cell(column=19, row=row).value = round(inst.graniteB, 0)
+        try:
+            if inst.SN is not None:
+                finalSheet.cell(column=1, row=row).value = round(inst.SN, 0)
+                finalSheet.cell(column=2, row=row).value = round(inst.brickA, 0)
+                finalSheet.cell(column=3, row=row).value = round(inst.brickB, 0)
+                finalSheet.cell(column=4, row=row).value = round(inst.concreteA, 0)
+                finalSheet.cell(column=5, row=row).value = round(inst.concreteB, 0)
+                finalSheet.cell(column=6, row=row).value = round(inst.linoleumA, 0)
+                finalSheet.cell(column=7, row=row).value = round(inst.linoleumB, 0)
+                finalSheet.cell(column=8, row=row).value = round(inst.drywallA, 0)
+                finalSheet.cell(column=9, row=row).value = round(inst.drywallB, 0)
+                finalSheet.cell(column=10, row=row).value = round(inst.metalA, 0)
+                finalSheet.cell(column=11, row=row).value = round(inst.metalB, 0)
+                finalSheet.cell(column=12, row=row).value = round(inst.ceilingTileA, 0)
+                finalSheet.cell(column=13, row=row).value = round(inst.ceilingTileB, 0)
+                finalSheet.cell(column=14, row=row).value = round(inst.woodA, 0)
+                finalSheet.cell(column=15, row=row).value = round(inst.woodB, 0)
+                finalSheet.cell(column=16, row=row).value = round(inst.glassA, 0)
+                finalSheet.cell(column=17, row=row).value = round(inst.glassB, 0)
+                finalSheet.cell(column=18, row=row).value = round(inst.graniteA, 0)
+                finalSheet.cell(column=19, row=row).value = round(inst.graniteB, 0)
+
+        except:
+            print("Error: with inputting inst " + str(inst.SN))
 
         row += 1
 
