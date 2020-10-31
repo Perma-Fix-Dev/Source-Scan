@@ -274,7 +274,7 @@ root.geometry('220x100')
 image = PhotoImage(file=resource_path("images.png"))
 path = StringVar()
 
-label = tk.Label(root, text="Folder Path:")
+label = tk.Label(root, text="File Path:")
 label.place(x=0, y=5)
 entry = tk.Entry(root, width=20, text=path)
 entry.place(x=67, y=7)
