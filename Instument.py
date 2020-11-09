@@ -39,7 +39,7 @@ class Instrument:
 def checklist(ws):
     col = 2
 
-    while col < 250:
+    while col < 500:
         if len(instruments) == 0:
             inst = Instrument(ws.cell(column=col, row=snRow).value)
             instruments.append(inst)
@@ -123,7 +123,7 @@ def main(filepath):
 
     # Assign values
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == brickSheet.cell(column=col, row=snRow).value:
                 inst.brickA = brickSheet.cell(column=col, row=avgRow).value
@@ -133,7 +133,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == concreteSheet.cell(column=col, row=snRow).value:
                 inst.concreteA = concreteSheet.cell(column=col, row=avgRow).value
@@ -143,7 +143,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == linoleumSheet.cell(column=col, row=snRow).value:
                 inst.linoleumA = linoleumSheet.cell(column=col, row=avgRow).value
@@ -153,7 +153,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == drywallSheet.cell(column=col, row=snRow).value:
                 inst.drywallA = drywallSheet.cell(column=col, row=avgRow).value
@@ -163,7 +163,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == metalSheet.cell(column=col, row=snRow).value:
                 inst.metalA = metalSheet.cell(column=col, row=avgRow).value
@@ -173,7 +173,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == ceilingTileSheet.cell(column=col, row=snRow).value:
                 inst.ceilingTileA = ceilingTileSheet.cell(column=col, row=avgRow).value
@@ -183,7 +183,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == woodSheet.cell(column=col, row=snRow).value:
                 inst.woodA = woodSheet.cell(column=col, row=avgRow).value
@@ -193,7 +193,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == glassSheet.cell(column=col, row=snRow).value:
                 inst.glassA = glassSheet.cell(column=col, row=avgRow).value
@@ -203,7 +203,7 @@ def main(filepath):
             continue
 
     col = 2
-    while col < 250:
+    while col < 500:
         for inst in instruments:
             if inst.SN == graniteSheet.cell(column=col, row=snRow).value:
                 inst.graniteA = graniteSheet.cell(column=col, row=avgRow).value
