@@ -6,6 +6,7 @@ from openpyxl.styles import Alignment
 from openpyxl.utils import get_column_letter
 import os
 import sys
+import math
 
 instruments = list()
 SNs = list()
@@ -274,24 +275,24 @@ def main(filepath):
         try:
             if inst.SN is not None:
                 finalSheet.cell(column=1, row=row).value = inst.SN
-                if theBrickSheet: finalSheet.cell(column=2, row=row).value = round(inst.brickA, 0)
-                if theBrickSheet: finalSheet.cell(column=3, row=row).value = round(inst.brickB, 0)
-                if theConcreteSheet: finalSheet.cell(column=4, row=row).value = round(inst.concreteA, 0)
-                if theConcreteSheet: finalSheet.cell(column=5, row=row).value = round(inst.concreteB, 0)
-                if theLinoleumSheet: finalSheet.cell(column=6, row=row).value = round(inst.linoleumA, 0)
-                if theLinoleumSheet: finalSheet.cell(column=7, row=row).value = round(inst.linoleumB, 0)
-                if theDrywallSheet:  finalSheet.cell(column=8, row=row).value = round(inst.drywallA, 0)
-                if theDrywallSheet: finalSheet.cell(column=9, row=row).value = round(inst.drywallB, 0)
-                if theMetalSheet: finalSheet.cell(column=10, row=row).value = round(inst.metalA, 0)
-                if theMetalSheet: finalSheet.cell(column=11, row=row).value = round(inst.metalB, 0)
-                if theCeilingTileSheet: finalSheet.cell(column=12, row=row).value = round(inst.ceilingTileA, 0)
-                if theCeilingTileSheet: finalSheet.cell(column=13, row=row).value = round(inst.ceilingTileB, 0)
-                if theWoodSheet: finalSheet.cell(column=14, row=row).value = round(inst.woodA, 0)
-                if theWoodSheet: finalSheet.cell(column=15, row=row).value = round(inst.woodB, 0)
-                if theGlassSheet: finalSheet.cell(column=16, row=row).value = round(inst.glassA, 0)
-                if theGlassSheet: finalSheet.cell(column=17, row=row).value = round(inst.glassB, 0)
-                if theGraniteSheet: finalSheet.cell(column=18, row=row).value = round(inst.graniteA, 0)
-                if theGraniteSheet: finalSheet.cell(column=19, row=row).value = round(inst.graniteB, 0)
+                if theBrickSheet: finalSheet.cell(column=2, row=row).value = round(inst.brickA + 0.000000000000000000001, 0)
+                if theBrickSheet: finalSheet.cell(column=3, row=row).value = round(inst.brickB + 0.000000000000000000001, 0)
+                if theConcreteSheet: finalSheet.cell(column=4, row=row).value = round(inst.concreteA + 0.000000000000000000001, 0)
+                if theConcreteSheet: finalSheet.cell(column=5, row=row).value = round(inst.concreteB + 0.000000000000000000001, 0)
+                if theLinoleumSheet: finalSheet.cell(column=6, row=row).value = round(inst.linoleumA + 0.000000000000000000001, 0)
+                if theLinoleumSheet: finalSheet.cell(column=7, row=row).value = round(inst.linoleumB + 0.000000000000000000001, 0)
+                if theDrywallSheet:  finalSheet.cell(column=8, row=row).value = round(inst.drywallA + 0.000000000000000000001, 0)
+                if theDrywallSheet: finalSheet.cell(column=9, row=row).value = round(inst.drywallB + 0.000000000000000000001, 0)
+                if theMetalSheet: finalSheet.cell(column=10, row=row).value = round(inst.metalA + 0.000000000000000000001, 0)
+                if theMetalSheet: finalSheet.cell(column=11, row=row).value = round(inst.metalB + 0.000000000000000000001, 0)
+                if theCeilingTileSheet: finalSheet.cell(column=12, row=row).value = round(inst.ceilingTileA + 0.000000000000000000001, 0)
+                if theCeilingTileSheet: finalSheet.cell(column=13, row=row).value = round(inst.ceilingTileB + 0.000000000000000000001, 0)
+                if theWoodSheet: finalSheet.cell(column=14, row=row).value = round(inst.woodA + 0.000000000000000000001, 0)
+                if theWoodSheet: finalSheet.cell(column=15, row=row).value = round(inst.woodB + 0.000000000000000000001, 0)
+                if theGlassSheet: finalSheet.cell(column=16, row=row).value = round(inst.glassA + 0.000000000000000000001, 0)
+                if theGlassSheet: finalSheet.cell(column=17, row=row).value = round(inst.glassB + 0.000000000000000000001, 0)
+                if theGraniteSheet: finalSheet.cell(column=18, row=row).value = round(inst.graniteA + 0.000000000000000000001, 0)
+                if theGraniteSheet: finalSheet.cell(column=19, row=row).value = round(inst.graniteB + 0.000000000000000000001, 0)
 
         except:
             print("Error: with inputting inst " + str(inst.SN))
